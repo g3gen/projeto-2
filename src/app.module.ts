@@ -2,6 +2,7 @@ import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 
 import { CategoriaTreino } from "./categoria-treino/entities/categoria-treino.entity";
+import { CategoriaTreinoModule } from "./categoria-treino/categoria-treino.module";
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { CategoriaTreino } from "./categoria-treino/entities/categoria-treino.en
       entities: [CategoriaTreino],
       synchronize: true,
     }),
+    CategoriaTreinoModule, // <<< AQUI
   ],
   controllers: [],
   providers: [],
