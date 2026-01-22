@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Plano } from './planos/entities/plano.entiti';
+import { PlanoModule } from './planos/plano.module';
 
 @Module({
   imports: [
@@ -10,9 +12,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'root',
       database: 'db_fittrack',
-      entities: [],
+      entities: [Plano],
       synchronize: true,
-    })
+    }),
+    PlanoModule,
   ],
   controllers: [],
   providers: [],
