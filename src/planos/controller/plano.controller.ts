@@ -10,7 +10,7 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { Plano } from '../entities/plano.entiti';
+import { Plano } from '../entities/plano.entity';
 import { PlanoService } from '../service/plano.service';
 @Controller('/planos')
 export class PlanoController {

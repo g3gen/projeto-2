@@ -11,12 +11,17 @@ export class CategoriaTreinoService {
   ) {}
 
   async findAll(): Promise<CategoriaTreino[]> {
-    return await this.categoriaTreinoRepository.find();
+    return await this.categoriaTreinoRepository.find({
+      relations: {
+        planos: true
+      }
+    });
   }
 
   async findById(id: number): Promise<CategoriaTreino> {
     const categoria = await this.categoriaTreinoRepository.findOne({
       where: { id },
+      relations: { planos: true }
     });
 
     if (!categoria)
@@ -30,7 +35,12 @@ export class CategoriaTreinoService {
 
   async findAllByDescricao(descricao: string): Promise<CategoriaTreino[]> {
     return await this.categoriaTreinoRepository.find({
-      where: { descricao: ILike(`%${descricao}%`) },
+      where: { 
+        descricao: ILike(`%${descricao}%`)
+      },
+      relations: {
+        planos: true 
+      }
     });
   }
 

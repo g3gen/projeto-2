@@ -1,5 +1,6 @@
 import { IsNotEmpty } from 'class-validator';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Plano } from '../../planos/entities/plano.entity';
 
 @Entity({ name: 'tb_usuario' })
 export class Usuario {
@@ -20,4 +21,8 @@ export class Usuario {
   @IsNotEmpty()
   @Column({ length: 255, nullable: false })
   senha: string;
+
+  @OneToMany(() => Plano, (plano) => plano.usuario)
+  planos: Plano[];
+
 }

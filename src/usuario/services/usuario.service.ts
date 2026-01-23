@@ -11,7 +11,11 @@ export class UsuarioService {
   ) {}
 
   async findAll(): Promise<Usuario[]> {
-    return await this.usuarioRepository.find();
+    return await this.usuarioRepository.find({
+      relations: {
+        planos: true
+      }
+    });
   }
 
   async findById(id: number): Promise<Usuario> {
@@ -19,6 +23,9 @@ export class UsuarioService {
       where: {
         id: id, // CORREÇÃO: Aqui deve ser 'id', não 'usuario'
       },
+      relations: {
+        planos: true
+      }
     });
 
     if (!usuario)
@@ -33,6 +40,9 @@ export class UsuarioService {
       where: {
         usuario: usuario, // Agora funciona porque a Entity tem a prop 'usuario'
       },
+      relations: {
+        planos: true
+      }
     });
   }
 
@@ -42,6 +52,9 @@ export class UsuarioService {
       where: {
         nome: nome, // Assumindo busca exata por simplicidade, ou use ILike
       },
+      relations: {
+        planos: true
+      }
     });
   }
 
