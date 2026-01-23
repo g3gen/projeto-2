@@ -65,4 +65,11 @@ export class UsuarioController {
   delete(@Param('id', ParseIntPipe) id: number) {
     return this.usuarioService.delete(id);
   }
+
+  @Get("/imc/:id")
+  @HttpCode(HttpStatus.OK)
+  imc(@Param("id", ParseIntPipe) id: number) {
+    return this.usuarioService.calcularImc(id);
+  }
+  
 }

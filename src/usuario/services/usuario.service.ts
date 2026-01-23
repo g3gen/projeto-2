@@ -8,7 +8,7 @@ export class UsuarioService {
   constructor(
     @InjectRepository(Usuario)
     private usuarioRepository: Repository<Usuario>,
-  ) {}
+  ) { }
 
   async findAll(): Promise<Usuario[]> {
     return await this.usuarioRepository.find({
@@ -87,4 +87,14 @@ export class UsuarioService {
 
     await this.usuarioRepository.delete(id);
   }
+
+  async calcularImc(id: number): Promise<{ imc: number }> {
+    const usuario = await this.findById(id);
+
+    // altura em metros (ex: 1.63) e peso em kg (ex: 88.9)
+    const imc = usuario.peso / (usuario.altura * usuario.altura);
+
+    return { imc: Number(imc.toFixed(2)) };
+  }
+  
 }
