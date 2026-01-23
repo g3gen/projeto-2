@@ -1,98 +1,163 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+🏋️ FitTrack – Backend de Aplicativo Fitness Personalizado
+📌 Descrição do Projeto
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+O FitTrack é um sistema backend desenvolvido com o framework NestJS, cujo objetivo é gerenciar usuários e seus treinos personalizados.
+A aplicação permite o cadastro de usuários, a definição de objetivos de treino e o registro de treinos realizados, organizando essas informações de forma estruturada e relacional.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+O sistema também conta com uma funcionalidade especial de cálculo do IMC (Índice de Massa Corporal), realizada a partir dos dados de altura e peso do usuário, auxiliando no acompanhamento da saúde física.
 
-## Description
+🎯 Modelo de Negócio
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Aplicativo de Fitness Personalizado.
 
-## Project setup
+👤 Usuário Final
 
-```bash
-$ npm install
-```
+Pessoas interessadas em melhorar sua saúde, condicionamento físico e qualidade de vida, utilizando um sistema que organiza treinos por objetivo e acompanha dados corporais de forma simples e intuitiva.
 
-## Compile and run the project
+🧩 Entidades do Sistema
+Usuário
 
-```bash
-# development
-$ npm run start
+Representa a pessoa que utiliza o aplicativo.
 
-# watch mode
-$ npm run start:dev
+id
 
-# production mode
-$ npm run start:prod
-```
+nome
 
-## Run tests
+email
 
-```bash
-# unit tests
-$ npm run test
+foto
 
-# e2e tests
-$ npm run test:e2e
+senha
 
-# test coverage
-$ npm run test:cov
-```
+altura
 
-## Deployment
+peso
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Objetivo (Categoria de Treino)
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Representa a classificação ou finalidade do treino.
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+id
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+descricao
 
-## Resources
+Exemplos: Hipertrofia, Cardio, Emagrecimento, Mobilidade.
 
-Check out a few resources that may come in handy when working with NestJS:
+Treino / Plano (Produto)
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+Representa o registro principal do sistema, equivalente ao conceito de “Produto” apresentado nos slides do desafio.
 
-## Support
+id
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+nome
 
-## Stay in touch
+duracaoMin
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+calorias
 
-## License
+data
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+usuario (chave estrangeira)
+
+objetivo (chave estrangeira)
+
+🔗 Relacionamentos
+
+Um Usuário pode possuir vários Treinos (1:N)
+
+Um Objetivo pode estar associado a vários Treinos (1:N)
+
+Cada Treino pertence a um único Usuário e a um único Objetivo
+
+Modelo aplicado conforme o desafio:
+
+N–1 Treino → Objetivo
+
+1–N Usuário → Treino
+
+⚙️ Funcionalidades do Sistema
+
+CRUD completo de Usuário
+
+CRUD completo de Objetivo
+
+CRUD completo de Treino
+
+Busca de treinos por ID
+
+Busca de treinos por nível
+
+Tratamento de erro para registros não encontrados
+
+Cálculo automático de IMC
+
+🧠 Regras de Negócio
+
+O cálculo do IMC é realizado no service do usuário
+
+O IMC não é armazenado no banco de dados
+
+Um treino só pode ser criado se estiver associado a um usuário e a um objetivo válidos
+
+As entidades seguem boas práticas de normalização e integridade referencial
+
+🧮 Funcionalidade Especial – Cálculo de IMC
+
+O IMC (Índice de Massa Corporal) é calculado com base na altura e peso do usuário, utilizando a fórmula:
+
+IMC = peso / (altura × altura)
+
+Essa funcionalidade atende ao requisito especial definido para o modelo de negócio de Aplicativo de Fitness Personalizado.
+
+🧪 Testes
+
+Os testes da API foram realizados utilizando a ferramenta Insomnia, validando:
+
+Cadastro de usuários, objetivos e treinos
+
+Listagem de registros
+
+Busca por ID
+
+Busca de treinos por nível
+
+Atualização de dados
+
+Exclusão de registros
+
+Tratamento de erros (ID inexistente)
+
+As evidências dos testes estão documentadas por meio de prints das requisições e respostas.
+
+🛠️ Tecnologias Utilizadas
+
+NestJS
+
+TypeScript
+
+TypeORM
+
+MySQL
+
+Insomnia
+
+🚀 Como Executar o Projeto
+
+Instalar as dependências:
+
+npm install
+
+
+Executar a aplicação em modo desenvolvimento:
+
+npm run start:dev
+
+
+A aplicação será iniciada em:
+
+http://localhost:3000
+
+📌 Considerações Finais
+
+O FitTrack é um projeto backend desenvolvido com foco em organização, boas práticas de desenvolvimento e clareza na modelagem de dados.
+O sistema atende integralmente aos requisitos do desafio proposto, apresentando um CRUD completo com relacionamento entre entidades e uma funcionalidade especial alinhada ao modelo de negócio escolhido.
