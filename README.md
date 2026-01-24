@@ -53,7 +53,7 @@ Representa o registro principal do sistema, equivalente ao conceito de "Produto"
 
 ---
 
-## 📊 Diagrama de Classes (UML) / DER
+## 📊 Diagrama de Classes (UML / DER)
 
 O Diagrama Entidade–Relacionamento (DER) foi elaborado para representar visualmente a estrutura do banco de dados e os relacionamentos entre as entidades do sistema.
 O modelo é composto por três entidades principais:
