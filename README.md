@@ -27,7 +27,7 @@ Representa a pessoa que utiliza o aplicativo.
 
 - `id`
 - `nome`
-- `email`
+- `usuario` (login/email)
 - `foto`
 - `senha`
 - `altura`
@@ -41,16 +41,35 @@ Representa a classificação ou finalidade do treino.
 
 **Exemplos:** Hipertrofia, Cardio, Emagrecimento, Mobilidade.
 
-### Treino / Plano (Produto)
+### Plano de Treino (Produto)
 Representa o registro principal do sistema, equivalente ao conceito de "Produto" apresentado nos slides do desafio.
 
 - `id`
 - `nome`
-- `duracaoMin`
-- `calorias`
-- `data`
+- `duracao` (em minutos)
+- `nivel` (iniciante, intermediário, avançado)
 - `usuario` (chave estrangeira)
-- `objetivo` (chave estrangeira)
+- `categoriaTreino` (chave estrangeira)
+
+---
+
+## 📊 Diagrama de Classes (UML) / DER
+
+O Diagrama Entidade–Relacionamento (DER) foi elaborado para representar visualmente a estrutura do banco de dados e os relacionamentos entre as entidades do sistema.
+O modelo é composto por três entidades principais:
+
+- Usuário
+- Categoria de Treino
+- Plano de Treino
+
+**O DER garante:**
+- Integridade referencial entre as tabelas
+- Correta aplicação dos relacionamentos 1:N
+- Organização dos dados conforme as regras de negócio do sistema
+
+<div align="center">
+  <img src="./doc/der-fittrack.png" alt="Diagrama de Classes / DER" />
+</div>
 
 ---
 
@@ -69,8 +88,8 @@ Representa o registro principal do sistema, equivalente ao conceito de "Produto"
 ## ⚙️ Funcionalidades do Sistema
 
 - CRUD completo de **Usuário**
-- CRUD completo de **Objetivo**
-- CRUD completo de **Treino**
+- CRUD completo de **Categoria de Treino**
+- CRUD completo de **Plano de Treino**
 - Busca de treinos por ID
 - Busca de treinos por nível
 - Tratamento de erro para registros não encontrados
@@ -139,7 +158,7 @@ As evidências dos testes estão documentadas por meio de prints das requisiçõ
 
 3. **A aplicação será iniciada em:**
    ```
-   http://localhost:3000
+   http://localhost:4000
    ```
 
 ---
